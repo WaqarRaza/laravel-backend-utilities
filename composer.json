@@ -1,0 +1,36 @@
+{
+  "name": "waqarraza/laravel-backend-utilities",
+  "description": "Laravel backend utilities, helpers and more",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "php",
+    "utilities",
+    "util"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Waqar\\Utility\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "muhammad waqar",
+      "email": "waqarqadri6@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0|^8.0",
+    "illuminate/support": "5.8.*|^6.0|^7.0|^8.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Waqar\\Utility\\Provider\\UtilityServiceProvider"
+      ],
+      "aliases": {
+        "LaravelUtil": "LaravelUtil"
+      }
+    }
+  }
+}
