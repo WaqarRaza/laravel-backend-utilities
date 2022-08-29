@@ -6,6 +6,8 @@
     "laravel",
     "php",
     "utilities",
+    "laravel utilities",
+    "laravel-utilities",
     "util"
   ],
   "autoload": {
@@ -37,7 +39,7 @@
       ],
       "aliases": {
         "Utility": "Utility",
-        "API": "ApiService"
+        "Api": "ApiService"
       }
     }
   }

@@ -1,14 +1,17 @@
 <?php namespace Waqar\Utility\Provider;
 
-class ApiServiceProvider extends \Illuminate\Support\ServiceProvider
+use \Illuminate\Support\ServiceProvider;
+
+class ApiServiceProvider extends ServiceProvider
 {
 
     public function boot()
     {
+        $this->app->singleton('API', \Waqar\Utility\ApiService::class);
     }
 
     public function register()
     {
-        $this->app->bind('API', \Waqar\Utility\Facade\ApiService::class);
+
     }
 }

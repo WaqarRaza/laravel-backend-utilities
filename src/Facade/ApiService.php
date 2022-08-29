@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Illuminate\Support\Facades\Response forbidden()
  * @method static \Illuminate\Support\Facades\Response unauthenticated()
  *
- * @see \Waqar\Utility\ApiResponse
+ * @see \Waqar\Utility\ApiService
  */
 class ApiService extends Facade
 {
 
     protected static function getFacadeAccessor()
     {
-        return 'ApiResponse';
+        return 'ApiService';
     }
 
 }
