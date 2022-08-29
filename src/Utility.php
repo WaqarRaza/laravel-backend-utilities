@@ -1,10 +1,12 @@
 <?php namespace Waqar\Utility;
 
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
-class Helper
+class Utility
 {
-    public static function dashboardStatsQuery($table, $operation, $column, $extra_wheres = '', $method = 'weekly', $dates = [])
+    public function dashboard_stats_query(string $table, string $operation, string $column, string $extra_wheres = '', string $method = 'weekly', array $dates = []): string
     {
         if ($method == 'manual') {
             if ($dates) {
@@ -42,29 +44,27 @@ class Helper
         }
 
 
-        $query = "SELECT
+        return "SELECT
                 @past:= (SELECT IFNULL($operation($column),0) FROM $table WHERE DATE(created_at) BETWEEN '$past_from' AND '$past_to' $extra_wheres) past,
                 @this:= (SELECT IFNULL($operation($column),0) FROM $table WHERE DATE(created_at) BETWEEN '$from' AND '$to' $extra_wheres) this,
                 @total:= IFNULL(@this+@past,1),
                 ROUND((@this-@past)/(@total)*100,1) AS 'percent'";
-        return $query;
     }
 
-    public function storeImage($file, $path, $full_path = false)
+    public function store_image(UploadedFile $file, string $path, bool $return_full_path = false): string
     {
         $image_name = Str::random() . time() . '.' . $file->getClientOriginalExtension();
         $file->move($path, $image_name);
-        return $full_path ? public_path($path . "/" . $image_name) : $image_name;
+        return $return_full_path ? public_path($path . "/" . $image_name) : $image_name;
     }
 
-    public function updateImage($file, $path, $old, $full_path = false)
+    public function update_image(UploadedFile $file, string $path, string $old, bool $return_full_path = false): string
     {
         if (file_exists(public_path($old))) {
             unlink(public_path($old));
         }
         $image_name = Str::random() . time() . '.' . $file->getClientOriginalExtension();
         $file->move($path, $image_name);
-        return $full_path ? public_path($path . "/" . $image_name) : $image_name;
+        return $return_full_path ? public_path($path . "/" . $image_name) : $image_name;
     }
-
 }

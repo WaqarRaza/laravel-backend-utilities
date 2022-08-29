@@ -20,8 +20,8 @@
     }
   ],
   "require": {
-    "php": "^7.0|^8.0",
-    "illuminate/support": "5.8.*|^6.0|^7.0|^8.0"
+    "php": "^7.*|^8.*",
+    "laravel/framework": "^v5.8.*|^v6.*|^v7.*|^v8.*|^v9.*"
   },
   "repositories": [
     {
@@ -32,10 +32,12 @@
   "extra": {
     "laravel": {
       "providers": [
+        "Waqar\\Utility\\Provider\\ApiServiceProvider",
         "Waqar\\Utility\\Provider\\UtilityServiceProvider"
       ],
       "aliases": {
-        "LaravelUtil": "LaravelUtil"
+        "Utility": "Utility",
+        "API": "ApiService"
       }
     }
   }

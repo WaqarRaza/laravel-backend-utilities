@@ -1,7 +1,6 @@
 <?php namespace Waqar\Utility\Provider;
 
-use Waqar\Utility\Facade\LaravelUtil;
-use Waqar\Utility\Helper;
+use Waqar\Utility\Utility;
 
 class UtilityServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -13,8 +12,8 @@ class UtilityServiceProvider extends \Illuminate\Support\ServiceProvider
     public function register()
     {
         if ($this->app instanceof \Illuminate\Foundation\Application) {
-            $this->app->singleton('LaravelUtil', function () {
-                return new Helper();
+            $this->app->singleton('Utility', function () {
+                return new Utility();
             });
         }
     }

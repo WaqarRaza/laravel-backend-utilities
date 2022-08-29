@@ -23,16 +23,11 @@ Add these following lines in config/app.php
 
 'aliases' => [
     ...
-    'LaravelUtil' => Waqar\Utility\Facade\LaravelUtil::class,
+    'Utility' => Waqar\Utility\Facade\Utility::class,
     ...
 ]
 ```
 
-# Available Methods
-
-- LaravelUtil::dashboardStatsQuery
-- LaravelUtil::storeImage
-- LaravelUtil::updateImage
 
 ### Note
 
