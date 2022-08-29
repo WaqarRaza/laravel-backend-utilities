@@ -1,7 +1,6 @@
 <?php namespace Waqar\Utility;
 
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
 class Utility

@@ -7,7 +7,7 @@ class ApiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->app->singleton('API', \Waqar\Utility\ApiService::class);
+        $this->app->singleton('ApiService', \Waqar\Utility\ApiService::class);
     }
 
     public function register()

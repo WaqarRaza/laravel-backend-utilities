@@ -8,7 +8,7 @@ class UtilityServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->app->singleton('API', \Waqar\Utility\Utility::class);
+        $this->app->singleton('Utility', Utility::class);
     }
 
     public function register()

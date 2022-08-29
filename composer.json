@@ -39,7 +39,7 @@
       ],
       "aliases": {
         "Utility": "Utility",
-        "Api": "ApiService"
+        "ApiService": "ApiService"
       }
     }
   }
