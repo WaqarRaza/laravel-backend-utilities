@@ -50,17 +50,17 @@ class ApiService
 
     public function server_error(\Throwable $throwable)
     {
-        return $this->response(null, $throwable->getMessage(), $throwable->getCode() ?? 500);
+        return $this->response(env('APP_DEBUG', false) ? $throwable->getTrace() : null, env('APP_DEBUG', false) ? $throwable->getMessage() : 'Server Error', $throwable->getCode() ?? 500);
     }
 
     public function forbidden()
     {
-        return $this->response(null, 'You don\'t permission to perform this action.', 403);
+        return $this->response(null, 'You don\'t have permission to perform this action.', 403);
     }
 
     public function unauthenticated()
     {
-        return $this->response(null, 'User is not authenticated, Authentication Required.', 401);
+        return $this->response(null, 'User is not authenticated.', 401);
     }
 
 }
