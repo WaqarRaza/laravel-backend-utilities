@@ -23,8 +23,9 @@ class ApiService
         ], $status);
     }
 
-    public function not_found($message = 'The response you are looking for not found.')
+    public function not_found($message = null)
     {
+        $message = $message ?: trans('not_found');
         return $this->response(null, $message, 404);
     }
 
@@ -55,12 +56,12 @@ class ApiService
 
     public function forbidden()
     {
-        return $this->response(null, 'You don\'t have permission to perform this action.', 403);
+        return $this->response(null, trans('forbidden'), 403);
     }
 
     public function unauthenticated()
     {
-        return $this->response(null, 'User is not authenticated.', 401);
+        return $this->response(null, trans('unauthenticated'), 401);
     }
 
 }
