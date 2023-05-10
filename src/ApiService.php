@@ -25,7 +25,7 @@ class ApiService
 
     public function not_found($message = null)
     {
-        $message = $message ?: trans('not_found');
+        $message = $message ?: trans('utilities::not_found');
         return $this->response(null, $message, 404);
     }
 
@@ -56,12 +56,12 @@ class ApiService
 
     public function forbidden()
     {
-        return $this->response(null, trans('forbidden'), 403);
+        return $this->response(null, trans('utilities::forbidden'), 403);
     }
 
     public function unauthenticated()
     {
-        return $this->response(null, trans('unauthenticated'), 401);
+        return $this->response(null, trans('utilities::unauthenticated'), 401);
     }
 
 }
