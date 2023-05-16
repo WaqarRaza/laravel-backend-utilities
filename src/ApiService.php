@@ -49,9 +49,9 @@ class ApiService
         return $this->response(null, $message, $status);
     }
 
-    public function server_error(\Throwable $throwable)
+    public function server_error($throwable)
     {
-        return $this->response(env('APP_DEBUG', false) ? $throwable->getTrace() : null, env('APP_DEBUG', false) ? $throwable->getMessage() : trans('utilities::response.server_error_default'), empty($throwable->getCode()) ? 500 : (int)$throwable->getCode());
+        return $this->response(env('APP_DEBUG', false) ? $throwable->getTraceAsString() : null, env('APP_DEBUG', false) ? $throwable->getMessage() : trans('utilities::response.server_error_default'), 500);
     }
 
     public function forbidden()
